@@ -18,8 +18,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app.py .
 
 # Expose port
-EXPOSE 5000
+EXPOSE 8080
+
+# Set environment variable for port
+ENV PORT=8080
 
 # Run application
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000", "--timeout", "120"]
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8080", "--timeout", "120"]
 
